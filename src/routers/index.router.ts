@@ -5,9 +5,10 @@ import { Router } from "express";
 
 const router = Router();
 
+router.get('/health', (req, res) => res.send('Ok!'));
 router.post('/team', validate(schemaTeam, 'body') , controller.postTeam);
 router.get('/team', controller.getTeam);
 router.put('/team', validate(schemaTeam, 'body'), controller.updateTeam);
-router.delete('/team', controller.deleteTeam);
+router.delete('/team/:id', controller.deleteTeam);
 
 export default router;
