@@ -8,7 +8,7 @@ async function postTeamRepository (team : Team) {
 
 async function getTeamRepository () {
     const query = `SELECT * FROM team LIMIT 10`
-    return await db.query(query);
+    return await db.query<Team[]>(query);
 }
 
 async function updateTeamRepository (team: Team) {
